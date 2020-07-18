@@ -15,6 +15,8 @@ defmodule TodoWeb.Router do
 
   scope "/", TodoWeb do
     pipe_through :browser
+
+    get "/", TodoController, :index
   end
 
   scope "/api", TodoWeb do
