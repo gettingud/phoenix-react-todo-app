@@ -15,14 +15,13 @@ defmodule TodoWeb.Router do
 
   scope "/", TodoWeb do
     pipe_through :browser
-
-    get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", TodoWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", TodoWeb do
+    pipe_through :api
+
+    resources "/categories", CategoriesController, only: [:index]
+  end
 
   # Enables LiveDashboard only for development
   #
