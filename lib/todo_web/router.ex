@@ -21,6 +21,7 @@ defmodule TodoWeb.Router do
     pipe_through :api
 
     resources "/categories", CategoriesController, only: [:index]
+    resources "/items", ItemsController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development
